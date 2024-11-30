@@ -1,9 +1,9 @@
-// /app/api/parse-resume/route.ts
-import { NextResponse } from 'next/server';
+// /app/api/parse/route.ts
+import { NextRequest, NextResponse } from 'next/server';
 import pdf from 'pdf-parse';
 import mammoth from 'mammoth';
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
     try {
         // Parse the form data
         const formData = await req.formData();
