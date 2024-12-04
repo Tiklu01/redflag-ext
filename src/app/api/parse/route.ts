@@ -152,7 +152,16 @@ if (normalizedText.includes("statistics") && !normalizedText.includes("probabili
     console.log("ATS Score:", atsScore);
 
     // Return result
-    return NextResponse.json({ atsScore, redFlags });
+    return NextResponse.json({ atsScore, redFlags },
+      {
+        status: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*", // Allow all origins (you can restrict this to specific domains if needed)
+          "Access-Control-Allow-Methods": "POST",
+          "Access-Control-Allow-Headers": "Content-Type",
+        },
+      }
+    );
   } catch (error) {
     console.error("Error:", error);
     return NextResponse.json(

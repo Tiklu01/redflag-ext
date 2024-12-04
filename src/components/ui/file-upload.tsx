@@ -37,6 +37,7 @@ export const FileUpload = ({
         // Only allow one file at a time, replace existing file with the new one
         if (newFiles.length > 0) {
             setFiles([newFiles[0]]);
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             onChange && onChange([newFiles[0]]);
         }
     };
