@@ -42,12 +42,12 @@ export function FileUploadDemo() {
       });
 
       const data = await res.json();
-    //    console.log(data);
+       console.log(data);
        
       if (!res.ok) {
         throw new Error(data.error || "Failed to upload file");
       }
-
+      
       setFeedback(data.redFlags);
       setScore(data.atsScore);
     } catch (error) {
