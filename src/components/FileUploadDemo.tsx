@@ -6,7 +6,7 @@ import "react-circular-progressbar/dist/styles.css";
 import { FileUpload } from "@/components/ui/file-upload"; // Adjust the path if necessary
 
 export function FileUploadDemo() {
-  const [files, setFiles] = useState<File[]>([]);
+  const [, setFiles] = useState<File[]>([]);
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState<string[] | null>(null);
   const [score, setScore] = useState<number | null>(null);

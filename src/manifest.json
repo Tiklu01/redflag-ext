@@ -1,17 +1,37 @@
 {
   "manifest_version": 3,
-  "name": "Resume ATS Checker",
-  "version": "1.0.0",
-  "description": "Check resumes for ATS compatibility and detect red flags with humor!",
-  "permissions": ["storage", "activeTab", "scripting"],
-  "host_permissions": ["http://*/*", "https://*/*"],
-  "action": {
-    "default_popup": "index.html",
-    "default_icon": "icon.png"
-  },
+  "name": "ATS Resume Checker",
+  "description": "Detect red flags in resumes and provide ATS scores using a browser extension.",
+  "version": "1.0",
   "icons": {
-    "16": "icon-16.png",
-    "48": "icon-48.png",
-    "128": "icon-128.png"
-  }
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/content.js"]
+    }
+  ]
 }
