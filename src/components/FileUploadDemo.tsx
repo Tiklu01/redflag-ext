@@ -47,7 +47,7 @@ export function FileUploadDemo() {
       if (!res.ok) {
         throw new Error(data.error || "Failed to upload file");
       }
-      
+     
       setFeedback(data.redFlags);
       setScore(data.atsScore);
     } catch (error) {
@@ -90,9 +90,9 @@ export function FileUploadDemo() {
         <div className="mt-6 p-4 border border-gray-300 rounded">
           <h2 className="text-xl font-semibold">Red Flags Found:</h2>
           <ul className="list-disc list-inside">
-            {feedback.map((flag, idx) => (
+              {feedback.map((flag, idx) => (
               <li key={idx} className="text-red-600">
-                {flag}
+                {flag.replace(/\*+/g, "")}
               </li>
             ))}
           </ul>
